@@ -1,0 +1,49 @@
+#include <iostream>
+
+using namespace std;
+bool checkifprime(int x)
+{
+    int i;
+    bool ifprime=true;
+    if (x==0||x==1)
+    {
+        ifprime=false;
+    }
+    else
+    {
+        for(i=2;i<=x/2;++i)
+        {if(x%i==0)
+        {
+            ifprime=false;
+            break;
+        }
+            
+        }
+    }
+    return ifprime;
+}
+
+int main()
+{
+ int a;
+ int i;
+ bool prime=true;
+ 
+ cout<<"Enter a number: ";
+ cin>>a;
+ for(i=2;i<=a/2;++i)
+ {
+     if(checkifprime(i))
+     {
+         if (checkifprime(a-i))
+         {
+             cout << a << " = " << i << " + " << a-i << endl;
+                prime = true;
+         }
+     }
+ }
+if (!prime)
+      cout << a << " can't be expressed as sum of two prime numbers.";
+    return 0;
+}
+
